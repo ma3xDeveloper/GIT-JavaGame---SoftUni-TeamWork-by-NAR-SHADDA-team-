@@ -6,7 +6,7 @@ public class tesst {
 
 		
 		int t=6;
-		String b = repo;
+		String b;
 	}
 
 }
