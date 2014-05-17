@@ -1,0 +1,217 @@
+	
+
+    import java.util.Scanner;
+     
+    import javax.lang.model.type.NullType;
+     
+    import org.omg.CORBA.PUBLIC_MEMBER;
+     
+    /**
+     *
+     * @author Gosho
+     */
+    public class afda {
+     
+            /**
+             * @param args
+             *            the command line arguments
+             */
+            // public static void PrintArray() {
+            // char[][] arrChes = new char[7][7];
+            // // Initialize Array
+            // for (int row = 0; row < 7; row++) {
+            // for (int col = 0; col < 7; col++) {
+            // if (row % 2 == 0) {
+            // if (col % 2 == 0) {
+            // arrChes[row][col] = '*';
+            // } else {
+            // arrChes[row][col] = '-';
+            // }
+            // } else {
+            // if (col % 2 == 0) {
+            // arrChes[row][col] = '|';
+            // } else {
+            // //arrChes[row][col] = ' ';
+            // }
+            // }
+            // }
+            // }
+            // for (int row = 0; row < 7; row++) {
+            // for (int col = 0; col < 7; col++) {
+            // System.out.print(arrChes[row][col]);
+            // }
+            // System.out.println();
+            // }
+            // }
+            public static void main(String[] args) {
+                    // TODO code application logic here
+                    Scanner input = new Scanner(System.in);
+                    char[][] arrChes = new char[7][7];
+                    boolean found = false;
+                    int player = 0;
+                    char rowMatrix = ' ';
+                    char colMatrix = ' ';
+     
+                    // Read UserName
+                    System.out.print("user1: ");
+                    String firstPlayer = input.nextLine();
+                    System.out.print("user2: ");
+                    String secondPlayer = input.nextLine();
+                    System.out.println();
+                    boolean firstPlayerSign = false;
+                    boolean secondPlayerSign = false;
+                    while (!found) {
+     
+                            if (player % 2 == 0) {
+                                    System.out.println("User: " + firstPlayer);
+                                    firstPlayerSign = true;
+                                    secondPlayerSign = false;
+     
+                            } else {
+                                    System.out.println("User: " + secondPlayer);
+                                    firstPlayerSign = false;
+                                    secondPlayerSign = true;
+                            }
+                            System.out.print(" please choose row (1,2 or 3): ");
+                            rowMatrix = input.next().charAt(0);
+                            System.out.print(" please choose col (1,2 or 3): ");
+                            colMatrix = input.next().charAt(0);
+                            if (firstPlayerSign) {
+                                    if (rowMatrix == '1') {
+                                            if (colMatrix == '1') {
+                                                    arrChes[1][1] = 'O';
+                                            }
+                                            if (colMatrix == '2') {
+                                                    arrChes[1][3] = 'O';
+                                            }
+                                            if (colMatrix == '3') {
+                                                    arrChes[1][5] = 'O';
+                                            }
+                                    }
+                                    if (rowMatrix == '2') {
+                                            if (colMatrix == '1') {
+                                                    arrChes[3][1] = 'O';
+                                            }
+                                            if (colMatrix == '2') {
+                                                    arrChes[3][3] = 'O';
+                                            }
+                                            if (colMatrix == '3') {
+                                                    arrChes[3][5] = 'O';
+                                            }
+                                    }
+                                    if (rowMatrix == '3') {
+                                            if (colMatrix == '1') {
+                                                    arrChes[5][1] = 'O';
+                                            }
+                                            if (colMatrix == '2') {
+                                                    arrChes[5][3] = 'O';
+                                            }
+                                            if (colMatrix == '3') {
+                                                    arrChes[5][5] = 'O';
+                                            }
+                                    }
+                            }
+                            if (secondPlayerSign) {
+                                    if (rowMatrix == '1') {
+                                            if (colMatrix == '1') {
+                                                    arrChes[1][1] = 'X';
+                                            }
+                                            if (colMatrix == '2') {
+                                                    arrChes[1][3] = 'X';
+                                            }
+                                            if (colMatrix == '3') {
+                                                    arrChes[1][5] = 'X';
+                                            }
+                                    }
+                                    if (rowMatrix == '2') {
+                                            if (colMatrix == '1') {
+                                                    arrChes[3][1] = 'X';
+                                            }
+                                            if (colMatrix == '2') {
+                                                    arrChes[3][3] = 'X';
+                                            }
+                                            if (colMatrix == '3') {
+                                                    arrChes[3][5] = 'X';
+                                            }
+                                    }
+                                    if (rowMatrix == '3') {
+                                            if (colMatrix == '1') {
+                                                    arrChes[5][1] = 'X';
+                                            }
+                                            if (colMatrix == '2') {
+                                                    arrChes[5][3] = 'X';
+                                            }
+                                            if (colMatrix == '3') {
+                                                    arrChes[5][5] = 'X';
+                                            }
+                                    }
+                            }
+                            if ((arrChes[1][1] == arrChes[1][3]
+                                            && arrChes[1][1] == arrChes[1][5] && (arrChes[1][1] == 'O' || arrChes[1][1] == 'X'))) {
+                                    found = true;
+                            }
+                            if ((arrChes[3][1] == arrChes[3][3]
+                                            && arrChes[3][1] == arrChes[3][5] && (arrChes[3][1] == 'O' || arrChes[3][1] == 'X'))) {
+                                    found = true;
+                            }
+                            if ((arrChes[1][1] == arrChes[3][1]
+                                            && arrChes[1][1] == arrChes[5][1] && (arrChes[1][1] == 'O' || arrChes[1][1] == 'X'))) {
+                                    found = true;
+                            }
+                            if ((arrChes[1][3] == arrChes[3][3]
+                                            && arrChes[1][3] == arrChes[5][3] && (arrChes[1][3] == 'O' || arrChes[1][3] == 'X'))) {
+                                    found = true;
+                            }
+                            if ((arrChes[1][5] == arrChes[3][5] && arrChes[1][3] ==
+                                             arrChes[5][5] && (arrChes[1][5] == 'O' || arrChes[1][5] == 'X'))) {
+                                    found = true;
+                            }
+                            if ((arrChes[1][1] == arrChes[3][3] && arrChes[1][1] ==
+                                             arrChes[5][5] && (arrChes[1][1] == 'O' || arrChes[1][1] == 'X'))) {
+                                    found = true;
+                            }
+                            if ((arrChes[1][5] == arrChes[3][3] && arrChes[1][5] ==
+                                             arrChes[5][1] && (arrChes[1][5] == 'O' || arrChes[1][5] == 'X'))) {
+                                    found = true;
+                            }
+     
+                            // Initialize Array
+                            for (int row = 0; row < 7; row++) {
+                                    for (int col = 0; col < 7; col++) {
+                                            if (row % 2 == 0) {
+                                                    if (col % 2 == 0) {
+                                                            arrChes[row][col] = '*';
+                                                    } else {
+                                                            arrChes[row][col] = '-';
+                                                    }
+                                            } else {
+                                                    if (col % 2 == 0) {
+                                                            arrChes[row][col] = '|';
+                                                    } else {
+                                                            // arrChes[row][col] = ' ';
+                                                    }
+                                            }
+                                    }
+                            }
+                            for (int row = 0; row < 7; row++) {
+                                    for (int col = 0; col < 7; col++) {
+                                            System.out.print(arrChes[row][col]);
+                                    }
+                                    System.out.println();
+                            }
+                            if (found) {
+                                    if (secondPlayerSign) {
+                                            System.out.println("Congratulation " + secondPlayer + "! You are the winner!");
+                                    } else {
+                                            System.out.println("Congratulation " + firstPlayer + "! You are the winner!");
+                                    }
+     
+                                    break;
+                            }
+                            player++;
+                    }
+     
+            }
+     
+    }
+
